@@ -1,12 +1,14 @@
 import axios from "axios";
 import { baseUrl, clientId, clientSecret } from "../constants.js";
 import { getToken } from "./getToken.js";
+import fs from "fs";
+import path from "path";
 
 const accessToken = async () => {
   return await getToken(clientId, clientSecret);
 };
 
-async function downloadItem(projectId, itemId) {
+async function getVersionToDownload(projectId, itemId) {
   const token = await accessToken();
   const tipUrl = `${baseUrl}data/v1/projects/${projectId}/items/${itemId}/tip`; // get lastest version
   const headers = {
@@ -19,7 +21,7 @@ async function downloadItem(projectId, itemId) {
   });
 
   const tipDataId = response.data.data.id;
-  
+
   const encodedVersionId = encodeURIComponent(tipDataId);
 
   const versionUrl = `${baseUrl}data/v1/projects/${projectId}/versions/${encodedVersionId}`;
@@ -35,42 +37,68 @@ async function downloadItem(projectId, itemId) {
     const versionData = versionResponse.data.data;
     if (versionData.relationships && versionData.relationships.storage) {
       const downloadUrl = versionData.relationships.storage.meta.link.href;
-      console.log(downloadUrl);
-      
-      const fileResponse = await axios.get(downloadUrl, {
-        responseType: "blob",
-        headers
-      });
-
-      if (fileResponse.status === 200) {
-        const filename = "proyect1.mpp";
-        const blob = new Blob([fileResponse.data]);
-        console.log(blob);
-        
-        const link = document.createElement("a");
-        link.href = window.URL.createObjectURL(blob);
-        link.download = filename;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        console.log(`Archivo '${filename}' descargado con éxito.`);
-      } else {
-        console.error(
-          `Error al descargar el archivo. Código de estado: ${fileResponse.status}`
-        );
-        console.error(fileResponse.data);
-      }
-    } else {
-      console.error(
-        "No se pudo encontrar el enlace de descarga en los datos de la versión."
-      );
-      console.error(versionData);
+      downloadAndSaveFile(downloadUrl);
     }
   }
 }
-downloadItem(
+
+async function downloadAndSaveFile(downloadUrl, filename = null) {
+  try {
+    const rootDir = path.resolve(
+      "C:/Users/juan.carrasquilla/Documents/repos/acc_functions"
+    );
+    console.log(rootDir);
+
+    const token = await accessToken();
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    };
+    const response = await axios({
+      url: downloadUrl,
+      responseType: "stream",
+      headers,
+    });
+
+    if (!filename) {
+      const contentDisposition = response.headers["content-disposition"];
+      if (contentDisposition) {
+        const fileNameMatch = contentDisposition.match(/filename="(.+)"/);
+        if (fileNameMatch.length > 1) {
+          filename = fileNameMatch[1];
+        }
+      }
+
+      if (!filename) {
+        filename = "archivo-descargado";
+      }
+    }
+
+    const filePath = path.join(rootDir, filename); 
+
+    const writer = fs.createWriteStream(filePath);
+
+    response.data.pipe(writer);
+
+    return new Promise((resolve, reject) => {
+      writer.on("finish", () => {
+        console.log(`El archivo se ha guardado exitosamente en: ${filePath}`);
+        resolve();
+      });
+      writer.on("error", (err) => {
+        console.error("Error al escribir el archivo", err);
+        reject(err);
+      });
+    });
+  } catch (error) {
+    console.error("Error al descargar el archivo", error);
+    throw error; // Rechazar la promesa en caso de error
+  }
+}
+getVersionToDownload(
   "b.07de680e-32d8-4411-acaa-3ab60c0b1a02",
-  "urn:adsk.wipprod:dm.lineage:7Vmj1aF7RniLgiwv357NRw"
+  // "urn:adsk.wipprod:dm.lineage:7Vmj1aF7RniLgiwv357NRw" //geojson
+  "urn:adsk.wipprod:dm.lineage:jFajsjt_RKqBMOIizvTaqA" // project .mpp
 )
   .then((res) => console.log(res))
   .catch((err) => console.log(err.status));
