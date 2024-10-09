@@ -1,0 +1,357 @@
+Tarea,Inicio,Fin
+INICIO DEL PROYECTO,2024-07-22 07:00:00,2024-07-22 07:00:00
+EJECUCIÓN DE LA OBRA,2024-07-22 07:00:00,2024-10-31 17:00:00
+  FASE 1,2024-07-22 07:00:00,2024-09-30 17:00:00
+    Red aguas residuales (Externa),2024-07-22 07:00:00,2024-09-08 17:00:00
+      Construcción de cerramientos y campamentos,2024-07-22 07:00:00,2024-07-29 17:00:00
+      Localización y replanteo,2024-07-25 07:00:00,2024-08-03 17:00:00
+      Demoliciones y retiros,2024-08-01 07:00:00,2024-08-10 17:00:00
+      Excavaciones y entibados,2024-08-05 07:00:00,2024-08-22 17:00:00
+        Tramo MHRD4A-MHRD5,2024-08-05 07:00:00,2024-08-07 17:00:00
+          Manhole MHRD5,2024-08-05 07:00:00,2024-08-07 17:00:00
+        Tramo MHRD4A-MHRD4,2024-08-08 07:00:00,2024-08-13 17:00:00
+          Manhole MHRD4A,2024-08-08 07:00:00,2024-08-10 17:00:00
+          Manhole MHRD4,2024-08-11 07:00:00,2024-08-13 17:00:00
+        Tramo MHRD4-MHRD3,2024-08-14 07:00:00,2024-08-16 17:00:00
+          Manhole MHRD3,2024-08-14 07:00:00,2024-08-16 17:00:00
+        Tramo MHRD3-MHRD2,2024-08-17 07:00:00,2024-08-19 17:00:00
+          Manhole MHRD2,2024-08-17 07:00:00,2024-08-19 17:00:00
+        Tramo MHRD2-MHRD1,2024-08-20 07:00:00,2024-08-22 17:00:00
+          Manhole MHRD1,2024-08-20 07:00:00,2024-08-22 17:00:00
+      Cargue de material de excavación,2024-08-20 07:00:00,2024-09-08 17:00:00
+      Nivelación y colocación de cama de triturado para tuberia,2024-08-06 07:00:00,2024-08-22 17:00:00
+        Tramo MHRD4A-MHRD5,2024-08-06 07:00:00,2024-08-07 17:00:00
+        Tramo MHRD4A-MHRD4,2024-08-09 07:00:00,2024-08-10 17:00:00
+        Tramo MHRD4-MHRD3,2024-08-12 07:00:00,2024-08-13 17:00:00
+        Tramo MHRD3-MHRD2,2024-08-18 07:00:00,2024-08-19 17:00:00
+        Tramo MHRD2-MHRD1,2024-08-21 07:00:00,2024-08-22 17:00:00
+      Instalación de tuberia novafort,2024-08-09 07:00:00,2024-08-30 17:00:00
+        Tramo MHRD4A-MHRD5,2024-08-09 07:00:00,2024-08-10 17:00:00
+        Tramo MHRD4A-MHRD4,2024-08-14 07:00:00,2024-08-15 17:00:00
+        Tramo MHRD4-MHRD3,2024-08-20 07:00:00,2024-08-21 17:00:00
+        Tramo MHRD3-MHRD2,2024-08-26 07:00:00,2024-08-27 17:00:00
+        Tramo MHRD2-MHRD1,2024-08-29 07:00:00,2024-08-30 17:00:00
+      Construcción de llenos,2024-08-10 07:00:00,2024-09-06 17:00:00
+        Tramo MHRD4A-MHRD5,2024-08-10 07:00:00,2024-08-12 17:00:00
+        Tramo MHRD4A-MHRD4,2024-08-20 07:00:00,2024-08-22 17:00:00
+        Tramo MHRD4-MHRD3,2024-08-26 07:00:00,2024-08-28 17:00:00
+        Tramo MHRD3-MHRD2,2024-09-01 07:00:00,2024-09-03 17:00:00
+        Tramo MHRD2-MHRD1,2024-09-04 07:00:00,2024-09-06 17:00:00
+"      Construcción de camaras de inspección 1,20",2024-08-19 07:00:00,2024-09-07 17:00:00
+        Manhole MHRD5,2024-08-19 07:00:00,2024-08-26 17:00:00
+        Manhole MHRD4A,2024-08-20 07:00:00,2024-08-27 17:00:00
+        Manhole MHRD4,2024-08-24 07:00:00,2024-08-31 17:00:00
+        Manhole MHRD3,2024-08-26 07:00:00,2024-09-02 17:00:00
+        Manhole MHRD2,2024-08-29 07:00:00,2024-09-05 17:00:00
+        Manhole MHRD1,2024-08-31 07:00:00,2024-09-07 17:00:00
+    Red aguas lluvias  (Externa),2024-08-01 07:00:00,2024-09-25 17:00:00
+      Localización y replanteo,2024-08-01 07:00:00,2024-08-05 17:00:00
+      Demoliciones y retiros,2024-08-06 07:00:00,2024-08-12 17:00:00
+      Excavaciones y entibados tramo MHL5-MHL6,2024-08-09 07:00:00,2024-08-15 17:00:00
+      Cargue de material de excavación,2024-08-12 07:00:00,2024-08-18 17:00:00
+      Nivelación y colocación de cama de triturado para tuberia tramo MHL5-ML6,2024-08-15 07:00:00,2024-08-21 17:00:00
+      Instalación de tuberia tramo MHL5-MHL6,2024-08-18 07:00:00,2024-08-24 17:00:00
+      Construcción de llenos tramo MHL5-MHL6,2024-08-21 07:00:00,2024-08-27 17:00:00
+"      Construcción de camaras de inspección 1,20 MHL5",2024-08-26 07:00:00,2024-09-01 17:00:00
+"      Construcción de camaras de inspección 1,20 MHL6",2024-08-26 07:00:00,2024-08-26 17:00:00
+      Construcción de sumideros,2024-09-06 07:00:00,2024-09-25 17:00:00
+        Sumidero L5 Norte,2024-09-06 07:00:00,2024-09-25 17:00:00
+        Sumidero L5 sur,2024-09-06 07:00:00,2024-09-25 17:00:00
+        Sumidero L6 Norte,2024-09-06 07:00:00,2024-09-25 17:00:00
+        Sumidero L6 sur,2024-09-06 07:00:00,2024-09-25 17:00:00
+    Red de aguas residuales (Sotano) ,2024-07-22 07:00:00,2024-09-30 17:00:00
+      Localización y replanteo,2024-08-01 07:00:00,2024-08-05 17:00:00
+      Diagnostico de redes,2024-08-06 07:00:00,2024-08-08 17:00:00
+      Demoliciones y retiros,2024-08-09 07:00:00,2024-08-15 17:00:00
+      Excavaciones y entibados,2024-08-12 07:00:00,2024-09-13 17:00:00
+        Tramo CRD11A-CRD13,2024-08-12 07:00:00,2024-08-14 17:00:00
+          Caja CRD11A,2024-08-12 07:00:00,2024-08-14 17:00:00
+        Tramo CRD13-MRD1,2024-08-14 07:00:00,2024-08-16 17:00:00
+          Caja CRD13,2024-08-14 07:00:00,2024-08-16 17:00:00
+        Tramo CRD 4B-CRD11A,2024-08-16 07:00:00,2024-08-18 17:00:00
+          Caja CRD4B,2024-08-16 07:00:00,2024-08-18 17:00:00
+        Tramo CRD4A-CRD4B,2024-08-18 07:00:00,2024-08-20 17:00:00
+          Caja CRD4A,2024-08-18 07:00:00,2024-08-20 17:00:00
+        Tramo CRD4A-CRD4B,2024-08-18 07:00:00,2024-08-20 17:00:00
+        Tramo CRD3-CRD4A,2024-08-20 07:00:00,2024-08-22 17:00:00
+          Caja CRD3,2024-08-20 07:00:00,2024-08-22 17:00:00
+        Tramo CRD1A-CRD3,2024-08-22 07:00:00,2024-08-24 17:00:00
+          Caja CRD1A,2024-08-22 07:00:00,2024-08-24 17:00:00
+        Tramo CRD1-CRD1A,2024-08-26 07:00:00,2024-09-01 17:00:00
+          Caja CRD1,2024-08-26 07:00:00,2024-08-28 17:00:00
+          Caja CRD1A,2024-08-30 07:00:00,2024-09-01 17:00:00
+        Tramo CRD1-GIMNASIO,2024-09-02 07:00:00,2024-09-04 17:00:00
+        CONEXIÓN CRED1A-PISO,2024-09-05 07:00:00,2024-09-07 17:00:00
+        CONEXIÓN CRD3-PISO,2024-09-08 07:00:00,2024-09-10 17:00:00
+        CONEXIÓN CRD4-PISO,2024-09-11 07:00:00,2024-09-13 17:00:00
+      Cargue de material de excavación,2024-07-22 07:00:00,2024-07-28 17:00:00
+      Nivelación y colocación de cama de triturado para tuberia,2024-07-22 07:00:00,2024-09-03 17:00:00
+        Tramo CRD11A-CRD3,2024-08-12 07:00:00,2024-08-13 17:00:00
+        Tramo CRD13-MHRD1,2024-08-14 07:00:00,2024-08-15 17:00:00
+        Tramo CRD4B-CRD1A,2024-08-16 07:00:00,2024-08-17 17:00:00
+        Tramo CRD4A-CRD4B,2024-08-18 07:00:00,2024-08-19 17:00:00
+        Tramo CRD3-CRD4A,2024-08-20 07:00:00,2024-08-21 17:00:00
+        Tramo CRD1A-CRD3,2024-08-22 07:00:00,2024-08-23 17:00:00
+        Tramo CRD12-BODEGA,2024-08-26 07:00:00,2024-08-27 17:00:00
+        Tramo CRD1-CRD1A,2024-09-02 07:00:00,2024-09-03 17:00:00
+        Tramo CRD1-Gimnasio,2024-09-02 07:00:00,2024-09-03 17:00:00
+        Conexión CRD1A-PISO,2024-07-22 07:00:00,2024-07-23 17:00:00
+        Conexión CRD3-PISO,2024-07-22 07:00:00,2024-07-23 17:00:00
+        Conexión CRD4-PISO,2024-07-22 07:00:00,2024-07-23 17:00:00
+      Instalación de tuberia novafort y pvc -accesorios,2024-08-13 07:00:00,2024-09-04 17:00:00
+        Tramo CRD11A-CRD3,2024-08-13 07:00:00,2024-08-14 17:00:00
+        Tramo CRD13-MHRD1,2024-08-15 07:00:00,2024-08-16 17:00:00
+        Tramo CRD4B-CRD1A,2024-08-17 07:00:00,2024-08-18 17:00:00
+        Tramo CRD4A-CRD4B,2024-08-19 07:00:00,2024-08-20 17:00:00
+        Tramo CRD3-CRD4A,2024-08-21 07:00:00,2024-08-22 17:00:00
+        Tramo CRD1A-CRD3,2024-08-23 07:00:00,2024-08-24 17:00:00
+        Tramo CRD12-BODEGA,2024-08-27 07:00:00,2024-08-28 17:00:00
+        Tramo CRD1-CRD1A,2024-09-03 07:00:00,2024-09-04 17:00:00
+        Tramo CRD1-Gimnasio,2024-09-03 07:00:00,2024-09-04 17:00:00
+      Construcción de llenos,2024-08-15 07:00:00,2024-09-07 17:00:00
+        Tramo CRD11A-CRD3,2024-08-15 07:00:00,2024-08-17 17:00:00
+        Tramo CRD13-MHRD1,2024-08-17 07:00:00,2024-08-19 17:00:00
+        Tramo CRD4B-CRD1A,2024-08-19 07:00:00,2024-08-21 17:00:00
+        Tramo CRD4A-CRD4B,2024-08-21 07:00:00,2024-08-23 17:00:00
+        Tramo CRD3-CRD4A,2024-08-23 07:00:00,2024-08-25 17:00:00
+        Tramo CRD1A-CRD3,2024-08-25 07:00:00,2024-08-27 17:00:00
+        Tramo CRD12-BODEGA,2024-08-29 07:00:00,2024-08-31 17:00:00
+        Tramo CRD1-CRD1A,2024-09-05 07:00:00,2024-09-07 17:00:00
+        Tramo CRD1-Gimnasio,2024-09-05 07:00:00,2024-09-07 17:00:00
+      Construcción de cajas de inspección,2024-09-08 07:00:00,2024-09-30 17:00:00
+        Caja CRD11A,2024-09-08 07:00:00,2024-09-10 17:00:00
+        Caja CRD13,2024-09-11 07:00:00,2024-09-13 17:00:00
+        Caja CRD4B,2024-09-14 07:00:00,2024-09-16 17:00:00
+        Caja CRD4A,2024-09-17 07:00:00,2024-09-19 17:00:00
+        Caja CRD3,2024-09-20 07:00:00,2024-09-22 17:00:00
+        Caja CRD1A,2024-09-23 07:00:00,2024-09-25 17:00:00
+        Caja CRD1,2024-09-26 07:00:00,2024-09-28 17:00:00
+        Caja del gimnasio,2024-09-29 07:00:00,2024-09-30 17:00:00
+    Red de aguas lluvias (Sotano) ,2024-08-05 07:00:00,2024-08-30 17:00:00
+      Localización y replanteo,2024-08-05 07:00:00,2024-08-06 17:00:00
+      Demoliciones y retiros,2024-08-06 07:00:00,2024-08-12 17:00:00
+      Excavaciones y entibados,2024-08-10 07:00:00,2024-08-16 17:00:00
+      Cargue de material de excavación,2024-08-12 07:00:00,2024-08-18 17:00:00
+      Nivelación y colocación de cama de triturado para tuberia,2024-08-15 07:00:00,2024-08-22 17:00:00
+      Instalación de tuberia,2024-08-19 07:00:00,2024-08-21 17:00:00
+      Construcción de llenos,2024-08-18 07:00:00,2024-08-25 17:00:00
+      Construcción de cajas ,2024-08-24 07:00:00,2024-08-30 17:00:00
+    Red de abastos (Edificio) ,2024-08-14 07:00:00,2024-09-03 17:00:00
+      Retiros,2024-08-14 07:00:00,2024-08-18 17:00:00
+      Piso 1 anillo costado sur,2024-08-15 07:00:00,2024-09-03 17:00:00
+      Piso 1 anillo costado norte,2024-08-15 07:00:00,2024-09-03 17:00:00
+    Obras civiles ,2024-08-29 07:00:00,2024-09-17 17:00:00
+      Construcción de buitrones,2024-08-29 07:00:00,2024-09-04 17:00:00
+      Instalación de cielo falso,2024-09-03 07:00:00,2024-09-06 17:00:00
+      Csontrucción de mamposteria,2024-09-05 07:00:00,2024-09-11 17:00:00
+      Construcción de revoque,2024-09-09 07:00:00,2024-09-13 17:00:00
+      Construcción de enchape,2024-09-11 07:00:00,2024-09-15 17:00:00
+      Resane y aplicación de pinturas,2024-09-14 07:00:00,2024-09-17 17:00:00
+    FIN EJECUCIÓN - FASE 1,2024-08-29 07:00:00,2024-08-29 07:00:00
+  FASE 2,2024-08-29 07:00:00,2024-10-24 17:00:00
+    Red de aguas lluvias (Externa),2024-09-01 07:00:00,2024-09-09 17:00:00
+      Construcción de cerramientos,2024-09-02 07:00:00,2024-09-03 17:00:00
+      Localización y replanteo,2024-09-04 07:00:00,2024-09-05 17:00:00
+      Demoliciones y retiros,2024-09-05 07:00:00,2024-09-09 17:00:00
+      Excavaciones y entibados Tramo MHL6-MHL7,2024-09-07 07:00:00,2024-09-09 17:00:00
+      Cargue de material de excavación,2024-09-05 07:00:00,2024-09-07 17:00:00
+      Nivelación y colocación de cama de triturado para tuberia Tramo MHL6-MHL7,2024-09-04 07:00:00,2024-09-06 17:00:00
+      Instalación de tuberia tramo MHL6-MHL7,2024-09-03 07:00:00,2024-09-05 17:00:00
+      Construcción de llenos Tramo MHL6-MHL7,2024-09-02 07:00:00,2024-09-04 17:00:00
+"      Construcción de camaras de inspección 1,20 MHL7",2024-09-01 07:00:00,2024-09-03 17:00:00
+      Construcción de sumideros L6 Costado sur,2024-09-01 07:00:00,2024-09-03 17:00:00
+    Red de aguas residuales (Sotano) ,2024-08-29 07:00:00,2024-10-24 17:00:00
+      Construcción de cerramientos,2024-08-29 07:00:00,2024-08-30 17:00:00
+      Localización y replanteo,2024-08-31 07:00:00,2024-09-01 17:00:00
+      Demoliciones y retiros,2024-09-01 07:00:00,2024-09-05 17:00:00
+      Excavaciones y entibados,2024-09-09 07:00:00,2024-10-11 17:00:00
+        Tramo CRD 11A-CRD9A,2024-09-09 07:00:00,2024-09-11 17:00:00
+        Caja CRD9A,2024-09-09 07:00:00,2024-09-11 17:00:00
+        Tramo CRD9A-CRD6,2024-09-15 07:00:00,2024-09-17 17:00:00
+        Caja CRD6,2024-09-15 07:00:00,2024-09-17 17:00:00
+        Tramo CRD7-CRD6,2024-09-21 07:00:00,2024-09-23 17:00:00
+        Caja CRD7,2024-09-21 07:00:00,2024-09-23 17:00:00
+        Tramo CRD 5-PISO,2024-09-27 07:00:00,2024-09-29 17:00:00
+        Caja CRD5,2024-09-27 07:00:00,2024-09-29 17:00:00
+        Conexión CRD11A-PISO,2024-09-30 07:00:00,2024-10-02 17:00:00
+        Conexión CRD9A-PISO 1-1,2024-10-03 07:00:00,2024-10-05 17:00:00
+        Conexión CRD 9A-PISO 1-2,2024-10-06 07:00:00,2024-10-08 17:00:00
+        Conexión CRD6-PISO 1-1,2024-10-09 07:00:00,2024-10-11 17:00:00
+      Cargue de material de excavación,2024-09-01 07:00:00,2024-09-07 17:00:00
+      Nivelación y colocación de cama de triturado para tuberia,2024-09-11 07:00:00,2024-10-02 17:00:00
+        Tramo CRD11A-CRD9A,2024-09-11 07:00:00,2024-09-12 17:00:00
+        Tramo CRD 9A-CRD6,2024-09-11 07:00:00,2024-09-12 17:00:00
+        Tramo CRD 7- CRD6,2024-09-17 07:00:00,2024-09-18 17:00:00
+        Tramo CRD5-CRD6,2024-09-17 07:00:00,2024-09-18 17:00:00
+        Tramo CRD5-PISO,2024-09-23 07:00:00,2024-09-24 17:00:00
+        Conexión CRD11A-PISO,2024-09-25 07:00:00,2024-09-26 17:00:00
+        Conexión CRD9A-PISO 1-1,2024-09-27 07:00:00,2024-09-28 17:00:00
+        Conexión CRD 9A-PISO 1-2,2024-09-29 07:00:00,2024-09-30 17:00:00
+        Conexión CRD6-PISO 1-1,2024-10-01 07:00:00,2024-10-02 17:00:00
+      Instalación de tuberia novafort y pvc -accesorios,2024-09-27 07:00:00,2024-10-22 17:00:00
+        Tramo CRD11A-CRD9A,2024-09-27 07:00:00,2024-09-28 17:00:00
+        Tramo CRD 9A-CRD6,2024-10-01 07:00:00,2024-10-02 17:00:00
+        Tramo CRD 7- CRD6,2024-10-05 07:00:00,2024-10-06 17:00:00
+        Tramo CRD5-CRD6,2024-10-09 07:00:00,2024-10-10 17:00:00
+        Tramo CRD5-PISO,2024-10-13 07:00:00,2024-10-14 17:00:00
+        Conexión CRD11A-PISO,2024-10-15 07:00:00,2024-10-16 17:00:00
+        Conexión CRD9A-PISO 1-1,2024-10-17 07:00:00,2024-10-18 17:00:00
+        Conexión CRD 9A-PISO 1-2,2024-10-19 07:00:00,2024-10-20 17:00:00
+        Conexión CRD6-PISO 1-1,2024-10-21 07:00:00,2024-10-22 17:00:00
+      Llenos,2024-09-29 07:00:00,2024-10-24 17:00:00
+        Tramo CRD11A-CRD9A,2024-09-29 07:00:00,2024-09-30 17:00:00
+        Tramo CRD 9A-CRD6,2024-10-03 07:00:00,2024-10-04 17:00:00
+        Tramo CRD 7- CRD6,2024-10-07 07:00:00,2024-10-08 17:00:00
+        Tramo CRD5-CRD6,2024-10-11 07:00:00,2024-10-12 17:00:00
+        Tramo CRD5-PISO,2024-10-15 07:00:00,2024-10-16 17:00:00
+        Conexión CRD11A-PISO,2024-10-17 07:00:00,2024-10-18 17:00:00
+        Conexión CRD9A-PISO 1-1,2024-10-19 07:00:00,2024-10-20 17:00:00
+        Conexión CRD 9A-PISO 1-2,2024-10-21 07:00:00,2024-10-22 17:00:00
+        Conexión CRD6-PISO 1-1,2024-10-23 07:00:00,2024-10-24 17:00:00
+      Construcción de cajas de inspección,2024-10-03 07:00:00,2024-10-14 17:00:00
+        Caja CRD 9A,2024-10-03 07:00:00,2024-10-05 17:00:00
+        Caja CRD5,2024-10-06 07:00:00,2024-10-08 17:00:00
+        Caja CRD6,2024-10-09 07:00:00,2024-10-11 17:00:00
+        Caja CRD7,2024-10-12 07:00:00,2024-10-14 17:00:00
+    Red de aguas lluvias (Sotano),2024-08-31 07:00:00,2024-09-28 17:00:00
+      Construcción de cerramientos,2024-08-31 07:00:00,2024-09-01 17:00:00
+      Localización y replanteo,2024-09-02 07:00:00,2024-09-03 17:00:00
+      Demoliciones y retiros,2024-09-03 07:00:00,2024-09-07 17:00:00
+      Excavaciones y entibados,2024-09-05 07:00:00,2024-09-11 17:00:00
+      Cargue de material de excavación,2024-09-07 07:00:00,2024-09-13 17:00:00
+      Nivelación y colocación de cama de triturado para tuberia,2024-09-10 07:00:00,2024-09-17 17:00:00
+      Instalación de tuberia,2024-09-14 07:00:00,2024-09-21 17:00:00
+      Construcción de llenos,2024-09-18 07:00:00,2024-09-25 17:00:00
+      Construcción de cajas de sifonadas,2024-09-24 07:00:00,2024-09-28 17:00:00
+    Red de abastos (Edificio),2024-08-30 07:00:00,2024-09-17 17:00:00
+      Retiros,2024-08-30 07:00:00,2024-09-05 17:00:00
+      Piso 2 Anillo Costado Sur,2024-09-11 07:00:00,2024-09-17 17:00:00
+      Piso 2 Anillo Costado Norte,2024-09-06 07:00:00,2024-09-12 17:00:00
+    Obras civiles,2024-09-07 07:00:00,2024-09-25 17:00:00
+      Construcción de buitrones,2024-09-07 07:00:00,2024-09-11 17:00:00
+      Instalación de cielo falso,2024-09-10 07:00:00,2024-09-13 17:00:00
+      Csontrucción de mamposteria,2024-09-12 07:00:00,2024-09-18 17:00:00
+      Construcción de revoque,2024-09-16 07:00:00,2024-09-20 17:00:00
+      Construcción de enchape,2024-09-18 07:00:00,2024-09-22 17:00:00
+      Resane y aplicación de pinturas,2024-09-21 07:00:00,2024-09-25 17:00:00
+    FIN EJECUCIÓN - FASE 2,2024-09-07 07:00:00,2024-09-07 07:00:00
+  FASE 3,2024-07-22 07:00:00,2024-10-18 17:00:00
+    FASE 3-1,2024-09-04 07:00:00,2024-09-17 17:00:00
+      Red de aguas lluvias (Externa),2024-09-04 07:00:00,2024-09-17 17:00:00
+        Construcción de cerramientos,2024-09-07 07:00:00,2024-09-07 17:00:00
+        Localización y replanteo,2024-09-08 07:00:00,2024-09-08 17:00:00
+        Demoliciones y retiros,2024-09-06 07:00:00,2024-09-06 17:00:00
+        Excavaciones y entibados,2024-09-04 07:00:00,2024-09-09 17:00:00
+          Tramo MHL7-MHL8,2024-09-04 07:00:00,2024-09-05 17:00:00
+          Tramo MHL8-MHL9,2024-09-06 07:00:00,2024-09-07 17:00:00
+          Tramo MHL9-EMPALME MHLE3,2024-09-08 07:00:00,2024-09-09 17:00:00
+        Cargue de material de excavación,2024-09-04 07:00:00,2024-09-08 17:00:00
+        Nivelación y colocación de cama de triturado para tuberia,2024-09-08 07:00:00,2024-09-13 17:00:00
+          Tramo MHL7-MHL8,2024-09-08 07:00:00,2024-09-09 17:00:00
+          Tramo MHL8-MHL9,2024-09-10 07:00:00,2024-09-11 17:00:00
+          Tramo MHL9-EMPALME MHLE3,2024-09-12 07:00:00,2024-09-13 17:00:00
+        Instalación de tuberia,2024-09-10 07:00:00,2024-09-15 17:00:00
+          Tramo MHL7-MHL8,2024-09-10 07:00:00,2024-09-11 17:00:00
+          Tramo MHL8-MHL9,2024-09-12 07:00:00,2024-09-13 17:00:00
+          Tramo MHL9-EMPALME MHLE3,2024-09-14 07:00:00,2024-09-15 17:00:00
+        Construcción de llenos,2024-09-10 07:00:00,2024-09-11 17:00:00
+          Tramo MHL7-MHL8,2024-09-10 07:00:00,2024-09-11 17:00:00
+          Tramo MHL8-MHL9,2024-09-10 07:00:00,2024-09-11 17:00:00
+          Tramo MHL9-EMPALME MHLE3,2024-09-10 07:00:00,2024-09-11 17:00:00
+"        Construcción de camaras de inspección 1,20",2024-09-12 07:00:00,2024-09-12 17:00:00
+          MHL7,2024-09-12 07:00:00,2024-09-12 17:00:00
+          MHL8,2024-09-12 07:00:00,2024-09-12 17:00:00
+          MHL9,2024-09-12 07:00:00,2024-09-12 17:00:00
+        Construcción de sumideros,2024-09-13 07:00:00,2024-09-17 17:00:00
+      Obras civiles,2024-08-30 07:00:00,2024-09-18 17:00:00
+        Construcción de losas,2024-08-30 07:00:00,2024-09-08 17:00:00
+        Construcción de andenes,2024-09-09 07:00:00,2024-09-18 17:00:00
+      FIN EJECUCIÓN - FASE 3-1,2024-09-17 17:00:00,2024-09-17 17:00:00
+    FASE 3-2,2024-09-18 07:00:00,2024-10-15 17:00:00
+      Red de aguas lluvias - (Externa),2024-09-18 07:00:00,2024-10-15 17:00:00
+        Construcción de cerramientos,2024-09-18 07:00:00,2024-09-18 17:00:00
+        Localización y replanteo,2024-09-19 07:00:00,2024-09-19 17:00:00
+        Demoliciones y retiros,2024-09-20 07:00:00,2024-09-22 17:00:00
+        Excavaciones y entibados,2024-09-24 07:00:00,2024-10-11 17:00:00
+          Excavación MHL1A,2024-09-24 07:00:00,2024-09-25 17:00:00
+          Carcamo occidental,2024-09-24 07:00:00,2024-09-29 17:00:00
+          Carcamo Oriental,2024-10-02 07:00:00,2024-10-07 17:00:00
+          Sumidero costa occidental,2024-10-08 07:00:00,2024-10-09 17:00:00
+          Sumidero costado orienta,2024-10-10 07:00:00,2024-10-11 17:00:00
+        Cargue de material de excavación,2024-09-25 07:00:00,2024-09-27 17:00:00
+        Nivelación y colocación de cama de triturado para tuberia,2024-10-11 07:00:00,2024-10-13 17:00:00
+          Sumidero costa occidental,2024-10-11 07:00:00,2024-10-11 17:00:00
+          Sumidero costado orienta,2024-10-13 07:00:00,2024-10-13 17:00:00
+        Instalación de tuberia,2024-10-11 07:00:00,2024-10-13 17:00:00
+          Sumidero costa occidental,2024-10-11 07:00:00,2024-10-11 17:00:00
+          Sumidero costado orienta,2024-10-13 07:00:00,2024-10-13 17:00:00
+        Construcción de llenos,2024-10-13 07:00:00,2024-10-15 17:00:00
+          Sumidero costa occidental,2024-10-13 07:00:00,2024-10-15 17:00:00
+          Sumidero costado orienta,2024-10-13 07:00:00,2024-10-15 17:00:00
+"        Construcción de camaras de inspección 1,20 MHL1A",2024-09-29 07:00:00,2024-09-30 17:00:00
+        Construcción de carcamos,2024-09-30 07:00:00,2024-10-15 17:00:00
+          Carcamo occidental,2024-09-30 07:00:00,2024-10-07 17:00:00
+          Carcamo Oriental,2024-10-08 07:00:00,2024-10-15 17:00:00
+      Red de abastos (Edificio a tanque),2024-09-18 07:00:00,2024-09-28 17:00:00
+        Construcción de cerramientos,2024-09-18 07:00:00,2024-09-18 17:00:00
+        Demoliciones y retiros red principal,2024-09-19 07:00:00,2024-09-21 17:00:00
+        Excavaciones y cargue red principal,2024-09-21 07:00:00,2024-09-23 17:00:00
+        Instalación de tuberia a presión y accesorios red principal,2024-09-22 07:00:00,2024-09-23 17:00:00
+        Construcción de llenos,2024-09-22 07:00:00,2024-09-24 17:00:00
+        Anillo piso 3 costado norte,2024-09-22 07:00:00,2024-09-24 17:00:00
+        Anillo piso 3 costado sur,2024-09-26 07:00:00,2024-09-28 17:00:00
+      Estructura de tanques,2024-09-18 07:00:00,2024-09-27 17:00:00
+        Construcción de cerramientos,2024-09-18 07:00:00,2024-09-18 17:00:00
+        Demoliciones,2024-09-18 07:00:00,2024-09-19 17:00:00
+        Excavaciones y entibados,2024-09-19 07:00:00,2024-09-20 17:00:00
+        Cargue de material de excavación,2024-09-20 07:00:00,2024-09-21 17:00:00
+        Construcción de llenos,2024-09-21 07:00:00,2024-09-22 17:00:00
+        Construcción de estructura de tanques,2024-09-23 07:00:00,2024-09-27 17:00:00
+      Tanques,2024-09-28 07:00:00,2024-10-03 17:00:00
+        Construcción de sistema de bombeo,2024-09-28 07:00:00,2024-10-02 17:00:00
+        Instalación de tanques de almcenamiento,2024-09-29 07:00:00,2024-10-03 17:00:00
+      FIN EJECUCIÓN - FASE 3-2,2024-10-03 17:00:00,2024-10-03 17:00:00
+    FASE 3-3,2024-07-22 07:00:00,2024-10-18 17:00:00
+      Red de aguas lluvias (Externa),2024-07-22 07:00:00,2024-10-18 17:00:00
+        Localización y replanteo,2024-10-04 07:00:00,2024-10-04 17:00:00
+        Demoliciones y retiros,2024-10-05 07:00:00,2024-10-06 17:00:00
+        Excavaciones y entibados,2024-10-08 07:00:00,2024-10-13 17:00:00
+          TramoMH LE1-MHLE2,2024-10-08 07:00:00,2024-10-09 17:00:00
+          Tramo MHL1-MHL1A,2024-10-10 07:00:00,2024-10-11 17:00:00
+"          Construcción de camaras de inspección 1,20 MHL1",2024-10-10 07:00:00,2024-10-11 17:00:00
+          Tramo MHL2-MHLE1,2024-10-12 07:00:00,2024-10-13 17:00:00
+"          Construcción de camaras de inspección 1,20 MHL2",2024-10-12 07:00:00,2024-10-13 17:00:00
+        Cargue de material de excavación,2024-10-12 07:00:00,2024-10-13 17:00:00
+        Nivelación y colocación de cama de triturado para tuberia,2024-10-10 07:00:00,2024-10-15 17:00:00
+          TramoMH LE1-MHLE2,2024-10-10 07:00:00,2024-10-11 17:00:00
+          Tramo MHL1-MHL1A,2024-10-12 07:00:00,2024-10-13 17:00:00
+          Tramo MHL2-MHLE1,2024-10-14 07:00:00,2024-10-15 17:00:00
+        Instalación de tuberia,2024-10-10 07:00:00,2024-10-15 17:00:00
+          TramoMH LE1-MHLE2,2024-10-10 07:00:00,2024-10-11 17:00:00
+          Tramo MHL1-MHL1A,2024-10-12 07:00:00,2024-10-13 17:00:00
+          Tramo MHL2-MHLE1,2024-10-14 07:00:00,2024-10-15 17:00:00
+        Construcción de llenos,2024-10-11 07:00:00,2024-10-18 17:00:00
+          TramoMH LE1-MHLE2,2024-10-11 07:00:00,2024-10-12 17:00:00
+          Tramo MHL1-MHL1A,2024-10-15 07:00:00,2024-10-16 17:00:00
+          Tramo MHL2-MHLE1,2024-10-17 07:00:00,2024-10-18 17:00:00
+"        Construcción de camaras de inspección 1,20",2024-10-15 07:00:00,2024-10-18 17:00:00
+          MHL1,2024-10-15 07:00:00,2024-10-16 17:00:00
+          MHL2,2024-10-17 07:00:00,2024-10-18 17:00:00
+        Construcción de sumideros,2024-07-22 07:00:00,2024-07-24 17:00:00
+      Obras civiles,2024-10-04 07:00:00,2024-10-17 17:00:00
+        Construcción de filtros,2024-10-04 07:00:00,2024-10-08 17:00:00
+        Construcción de losas,2024-10-07 07:00:00,2024-10-11 17:00:00
+        Construcción de andenes,2024-10-10 07:00:00,2024-10-14 17:00:00
+        Instalación de de grama tipo macana,2024-10-14 07:00:00,2024-10-17 17:00:00
+      FIN EJECUCIÓN - FASE 3-3,2024-10-17 17:00:00,2024-10-17 17:00:00
+  FASE 4,2024-10-18 07:00:00,2024-10-31 17:00:00
+    Pruebas y ensayos,2024-10-18 07:00:00,2024-10-22 17:00:00
+    Construcción de carpeta asfaltica,2024-10-21 07:00:00,2024-10-25 17:00:00
+    Señalización y demarcación vial,2024-10-26 07:00:00,2024-10-31 17:00:00
+ACTIVIDADES TRANSVERSALES,2024-07-22 07:00:00,2024-12-17 17:00:00
+  INVERSIÓN GESTIÓN SOCIAL Y COMUNICACIONES,2024-07-22 07:00:00,2024-12-17 17:00:00
+  INVERSIÓN GESTIÓN AMBIENTAL,2024-07-22 07:00:00,2024-12-17 17:00:00
+  INVERSIÓN SEGURIDAD Y SALUD EN EL TRABAJO,2024-07-22 07:00:00,2024-12-17 17:00:00
+  PRESUPUESTO PLAN DE MANEJO DE TRANSITO,2024-07-22 07:00:00,2024-12-17 17:00:00
+  POLIZAS,2024-07-22 07:00:00,2024-07-22 07:00:00
+FIN DEL PROYECTO,2024-12-17 17:00:00,2024-12-17 17:00:00

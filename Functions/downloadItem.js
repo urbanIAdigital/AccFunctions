@@ -15,7 +15,6 @@ async function getVersionToDownload(projectId, itemId) {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
   };
-
   const response = await axios.get(tipUrl, {
     headers,
   });
@@ -28,7 +27,6 @@ async function getVersionToDownload(projectId, itemId) {
   const versionResponse = await axios.get(versionUrl, {
     headers,
   });
-
   if (versionResponse.status !== 200) {
     console.error(
       `Error al obtener los detalles de la versión. Código de estado: ${versionResponse.status}`
@@ -37,15 +35,17 @@ async function getVersionToDownload(projectId, itemId) {
     const versionData = versionResponse.data.data;
     if (versionData.relationships && versionData.relationships.storage) {
       const downloadUrl = versionData.relationships.storage.meta.link.href;
+      console.log(downloadUrl);
+      return;
       downloadAndSaveFile(downloadUrl);
     }
   }
 }
 
-async function downloadAndSaveFile(downloadUrl, filename = null) {
+export async function downloadAndSaveFile(downloadUrl, filename = null) {
   try {
     const rootDir = path.resolve(
-      "C:/Users/juan.carrasquilla/Documents/repos/acc_functions"
+      "C:/Users/juan.carrasquilla/Documents/repos/acc_functions/mpp_files"
     );
     console.log(rootDir);
 
@@ -74,7 +74,7 @@ async function downloadAndSaveFile(downloadUrl, filename = null) {
       }
     }
 
-    const filePath = path.join(rootDir, filename); 
+    const filePath = path.join(rootDir, filename);
 
     const writer = fs.createWriteStream(filePath);
 
