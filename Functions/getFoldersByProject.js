@@ -20,6 +20,6 @@ export const getFolderByProject = async (projectId) => {
   });
   return data.data;
 };
-getFolderByProject("b.07de680e-32d8-4411-acaa-3ab60c0b1a02").then((res) =>
+getFolderByProject("b.bec75a5b-0859-434c-8782-9b6afe650235").then((res) =>
   console.log(res)
 );

@@ -45,7 +45,7 @@ async function getVersionToDownload(projectId, itemId) {
 export async function downloadAndSaveFile(downloadUrl, filename = null) {
   try {
     const rootDir = path.resolve(
-      "C:/Users/juan.carrasquilla/Documents/repos/acc_functions/mpp_files"
+      "C:/Users/juan.carrasquilla/Documents/repos/acc_functions/mppFolder"
     );
     console.log(rootDir);
 

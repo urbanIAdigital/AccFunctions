@@ -7,7 +7,7 @@ const accessToken = async () => {
   return await getToken(clientId, clientSecret);
 };
 
-export const getProjectList = async () => {
+const getProjectList = async () => {
   const hubId = await getHubId();
   const token = await accessToken();
   const headers = {
@@ -20,6 +20,8 @@ export const getProjectList = async () => {
   });
   return data.data;
 };
-// getProjectList().then((res) => {
-//   console.log(res);
-// });
+getProjectList().then((res) => {
+  console.log(res.map((r) => r));
+});
+
+export default getProjectList;
