@@ -1,15 +1,10 @@
 import pkg from "pg";
 import getProjectList from "./getProjectList.js";
+import { cliendDb } from "../constants.js";
 const { Client } = pkg;
 
 // Configuración de la conexión a la base de datos PostgreSQL
-const client = new Client({
-  user: "juan.carrasquilla", // Reemplaza con tu usuario
-  host: "10.158.23.249", // O la IP si usas otra máquina
-  database: "soui_prueba", // Reemplaza con el nombre de tu base de datos
-  password: "1037629710", // Reemplaza con tu contraseña
-  port: 5432, // Puerto por defecto de PostgreSQL
-});
+const client = new Client(cliendDb);
 
 // Función asíncrona para conectarse y realizar queries
 // async function executeQueries() {
