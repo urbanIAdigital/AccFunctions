@@ -18,6 +18,7 @@ const config = {
     encrypt: true,
     trustServerCertificate: true,
   },
+  requestTimeout: 60000, // Establece el timeout a 60 segundos
 };
 const queryFileName = "CONTRATOS_DERIVADOS.sql";
 // const queryFileName = "CONTRATOS_INTERADMINISTRATIVOS.sql";
@@ -25,7 +26,6 @@ const queryFileName = "CONTRATOS_DERIVADOS.sql";
 // Ruta al archivo SQL
 const queryFilePath = path.join(__dirname, "..", "sqlQueries", queryFileName);
 
-// Función para ejecutar la consulta
 async function executeQuery() {
   try {
     // Leer el archivo SQL
