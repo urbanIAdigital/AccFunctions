@@ -2,13 +2,11 @@ import sql from "mssql";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { saveToJsonFile } from "./saveFile.js";
+import { createObjectCsvWriter } from "csv-writer";
 
-// Obtener la ruta del directorio actual en ESM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Parámetros de conexión
 const config = {
   user: "consulta",
   password: "seven7.8",
@@ -18,37 +16,47 @@ const config = {
     encrypt: true,
     trustServerCertificate: true,
   },
-  requestTimeout: 1000000, // Establece el timeout a 60 segundos
+  requestTimeout: 1000000,
 };
-// const queryFileName = "CONTRATOS_DERIVADOS.sql";
 const queryFileName = "CONTRATOS_INTERADMINISTRATIVOS.sql";
+// const queryFileName = "CONTRATOS_DERIVADOS.sql";
 
-// Ruta al archivo SQL
 const queryFilePath = path.join(__dirname, "..", "sqlQueries", queryFileName);
+
+async function saveToCsvFile(fileName, data) {
+  const csvWriter = createObjectCsvWriter({
+    path: path.join(__dirname, "..", "exports", `${fileName}.csv`),
+    header: Object.keys(data[0]).map((key) => ({ id: key, title: key })),
+  });
+
+  try {
+    await csvWriter.writeRecords(data);
+    console.log(`Archivo CSV guardado en: ${fileName}.csv`);
+  } catch (err) {
+    console.error("Error guardando el archivo CSV:", err);
+  }
+}
 
 async function executeQuery() {
   try {
-    // Leer el archivo SQL
     const query = fs.readFileSync(queryFilePath, "utf-8");
 
-    // Conectar al servidor SQL
     await sql.connect(config);
 
-    // Ejecutar la consulta SQL
     const result = await sql.query(query);
-    saveToJsonFile(
-      "contratosInteradministrativos",
-      result.recordset.map((rec) => rec)
-    );
-    // Mostrar los resultados en consola
-    // console.log(result.recordset.map((rec) => rec));s
 
-    // Cerrar la conexión
+    if (result.recordset.length > 0) {
+      await saveToCsvFile(
+        "contratosInteradministrativos",
+        result.recordset.map((rec) => rec)
+      );
+    } else {
+      console.log("No se encontraron datos para exportar.");
+    }
     sql.close();
   } catch (err) {
     console.error("Error ejecutando la consulta:", err);
   }
 }
 
-// Ejecutar la consulta
 executeQuery();
