@@ -11,3 +11,10 @@ export const cliendDb = {
   password: "1037629710", // Reemplaza con tu contraseña
   port: 5432, // Puerto por defecto de PostgreSQL
 };
+export const localCliendDb = {
+  user: "postgres", // Reemplaza con tu usuario
+  host: "127.0.0.1", // O la IP si usas otra máquina
+  database: "test1", // Reemplaza con el nombre de tu base de datos
+  password: "123456", // Reemplaza con tu contraseña
+  port: 5432, // Puerto por defecto de PostgreSQL
+};

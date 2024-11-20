@@ -18,8 +18,11 @@ const config = {
   },
   requestTimeout: 1000000,
 };
-const queryFileName = "CONTRATOS_INTERADMINISTRATIVOS.sql";
+// const queryFileName = "CONTRATOS_INTERADMINISTRATIVOS.sql";
 // const queryFileName = "CONTRATOS_DERIVADOS.sql";
+// const queryFileName = "CONTRATOS_DERIVADOS_SIN_RUBRO.sql";
+// const queryFileName = "CONTRATOS_INTERADMINISTRATIVOS_SIN_RUBRO.sql";
+const queryFileName = "CONTRATOS_DERIVADOS1.sql";
 
 const queryFilePath = path.join(__dirname, "..", "sqlQueries", queryFileName);
 
@@ -47,7 +50,7 @@ async function executeQuery() {
 
     if (result.recordset.length > 0) {
       await saveToCsvFile(
-        "contratosInteradministrativos",
+        "contratosDerivados",
         result.recordset.map((rec) => rec)
       );
     } else {

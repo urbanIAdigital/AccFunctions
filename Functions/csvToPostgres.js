@@ -2,11 +2,11 @@ import pkg from "pg";
 import fs from "fs";
 import path from "path";
 import csv from "csv-parser";
-import { cliendDb } from "../constants.js";
+import { localCliendDb } from "../constants.js";
 const { Client } = pkg;
 
 // Configuración de conexión a la base de datos
-const client = new Client({...cliendDb, requestTimeout: 1000000,});
+const client = new Client({...localCliendDb, requestTimeout: 1000000,});
 
 
 // Rutas de los archivos CSV
