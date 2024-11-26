@@ -18,3 +18,4 @@ export const localCliendDb = {
   password: "123456", // Reemplaza con tu contraseña
   port: 5432, // Puerto por defecto de PostgreSQL
 };
+export const BATCH_SIZE = 1000;

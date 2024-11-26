@@ -1,7 +1,7 @@
 import pkg from "pg";
 import fs from "fs";
 import csvParser from "csv-parser";
-import { localCliendDb } from "../constants.js";
+import { BATCH_SIZE, localCliendDb } from "../constants.js";
 
 const pool = new pkg.Pool(localCliendDb);
 
@@ -51,10 +51,64 @@ const createTables = async () => {
         "CENTRO_DE_COSTOS" NUMERIC,
         "NOMBRE_CENTRO_DE_COSTOS" VARCHAR(255),
         "SUBGERENCIA" VARCHAR(255),
-        FOREIGN KEY ("CON_INTERADMINISTRATIVO") 
+        FOREIGN KEY ("CON_INTERADMINISTRATIVO")
           REFERENCES contratosInteradministrativos("CONTRATO_INTERADMINISTRATIVO")
           ON DELETE CASCADE
       );
+    `);
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS interRubros (
+        id SERIAL PRIMARY KEY,
+        "RUBRO" VARCHAR(255) UNIQUE NOT NULL,
+        "CON_INTERADMINISTRATIVO" VARCHAR(255) NOT NULL,
+        "NOMBRE_RUBRO" VARCHAR(255),
+        "PROYECTO" VARCHAR(255),
+        "NOMBRE_DE_PROYECTO" VARCHAR(255),
+        "COMPONENTE" VARCHAR(255),
+        "NOMBRE_COMPONENTE" VARCHAR(255),
+        "FUENTE" VARCHAR(255),
+        "NOMBRE_FUENTE" VARCHAR(255),
+        "APROPIADO" NUMERIC,
+        "CDP" NUMERIC,
+        "DISPONIBLE" NUMERIC,
+        "COMPROMETIDO" NUMERIC,
+        "PAGOS" NUMERIC,
+        "POR_COMPROMETER" NUMERIC,
+        "POR_PAGAR" NUMERIC,
+        FOREIGN KEY ("CON_INTERADMINISTRATIVO")
+          REFERENCES contratosInteradministrativos("CONTRATO_INTERADMINISTRATIVO")
+          ON DELETE CASCADE
+      );
+    `);
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS interRubros2 (
+    id SERIAL PRIMARY KEY,
+    "RUBRO_ID" VARCHAR(255) NOT NULL,
+    "SRS_ANOP" VARCHAR(255) DEFAULT '0', -- Valor por defecto
+    "RUBRO" VARCHAR(255) NOT NULL,
+    "CONTRATO_INTERADMINISTRATIVO" VARCHAR(255) NOT NULL,
+    "NOMBRE_RUBRO" VARCHAR(255),
+    "PROYECTO" VARCHAR(255),
+    "NOMBRE_DE_PROYECTO" VARCHAR(255),
+    "COMPONENTE" VARCHAR(255),
+    "NOMBRE_COMPONENTE" VARCHAR(255),
+    "FUENTE" VARCHAR(255),
+    "NOMBRE_FUENTE" VARCHAR(255),
+    "APROPIACION_INICIAL" NUMERIC,
+    "APROPIACION_DEFINITIVA" NUMERIC,
+    "CDP" NUMERIC,
+    "DISPONIBLE" NUMERIC,
+    "COMPROMETIDO" NUMERIC,
+    "PAGOS" NUMERIC,
+    "POR_COMPROMETER" NUMERIC,
+    "POR_PAGAR" NUMERIC,
+    UNIQUE ("RUBRO_ID", "SRS_ANOP"),
+    FOREIGN KEY ("CONTRATO_INTERADMINISTRATIVO")
+      REFERENCES contratosInteradministrativos("CONTRATO_INTERADMINISTRATIVO")
+      ON DELETE CASCADE
+);
+
+
     `);
 
     console.log("Tablas creadas exitosamente.");
@@ -73,49 +127,67 @@ const insertDataFromCSV = async (
     const rows = [];
     const stream = fs.createReadStream(filePath).pipe(csvParser());
 
+    // Leer y validar datos del CSV
     for await (const row of stream) {
       const values = columns.map((col) => row[col] || null);
       if (foreignKeyCheck) {
-        // Verificar si el valor de la clave foránea existe en la tabla padre
         const exists = await pool.query(
           `SELECT 1 FROM contratosInteradministrativos WHERE "CONTRATO_INTERADMINISTRATIVO" = $1`,
           [row[foreignKeyCheck]]
         );
         if (exists.rowCount === 0) {
           console.warn(
-            `Clave foránea no encontrada:  ${row[foreignKeyCheck]} para ${tableName} Código asociado: ${row["CODIGO"]}`
+            `Clave foránea no encontrada: ${row[foreignKeyCheck]} para ${tableName} Código asociado: ${row["CODIGO"]}`
           );
-          continue; // Omitir la fila
+          continue;
         }
       }
       rows.push(values);
     }
 
-    const placeholders = rows
-      .map(
-        (_, i) =>
-          `(${columns
-            .map((_, j) => `$${i * columns.length + j + 1}`)
-            .join(", ")})`
-      )
-      .join(", ");
+    if (rows.length === 0) {
+      console.log(`No se encontraron datos válidos para ${tableName}`);
+      return;
+    }
 
-    const query = `
-        INSERT INTO ${tableName} (${columns
-      .map((col) => `"${col}"`)
-      .join(", ")})
+    const totalBatches = Math.ceil(rows.length / BATCH_SIZE);
+    console.log(`Total de lotes: ${totalBatches}`);
+
+    for (let i = 0; i < totalBatches; i++) {
+      const start = i * BATCH_SIZE;
+      const end = start + BATCH_SIZE;
+      const batch = rows.slice(start, end);
+
+      const placeholders = batch
+        .map(
+          (_, rowIndex) =>
+            `(${columns
+              .map(
+                (_, colIndex) => `$${rowIndex * columns.length + colIndex + 1}`
+              )
+              .join(", ")})`
+        )
+        .join(", ");
+
+      const query = `
+        INSERT INTO "${tableName}" (${columns
+        .map((col) => `"${col}"`)
+        .join(", ")})
         VALUES ${placeholders}
         ON CONFLICT DO NOTHING;
       `;
 
-    const flatValues = rows.flat();
-    if (flatValues.length > 0) {
-      await pool.query(query, flatValues);
-      console.log(
-        `Datos insertados en la tabla ${tableName} desde ${filePath}`
-      );
-    } else {
-      console.log(`No se encontraron datos válidos para ${tableName}`);
+      const flatValues = batch.flat();
+      try {
+        await pool.query(query, flatValues);
+        console.log(`Lote ${i + 1}/${totalBatches} insertado exitosamente.`);
+      } catch (error) {
+        console.error(
+          `Error al insertar el lote ${i + 1}/${totalBatches}:`,
+          error
+        );
+        throw error;
+      }
     }
   } catch (err) {
     console.error(
@@ -124,7 +196,6 @@ const insertDataFromCSV = async (
     );
   }
 };
-
 const main = async () => {
   try {
     await createTables();
@@ -152,7 +223,7 @@ const main = async () => {
     );
 
     await insertDataFromCSV(
-      "contratoDerivado",
+      "contratoderivado",
       "./exports/contratosDerivadosSinRubro.csv",
       [
         "CODIGO",
@@ -177,6 +248,56 @@ const main = async () => {
         "SUBGERENCIA",
       ],
       "CON_INTERADMINISTRATIVO" // Verificar la clave foránea
+    );
+
+    await insertDataFromCSV(
+      "interrubros",
+      "./exports/contratosInteradministrativosRubro.csv",
+      [
+        "CON_INTERADMINISTRATIVO",
+        "NOMBRE_RUBRO",
+        "RUBRO",
+        "PROYECTO",
+        "NOMBRE_DE_PROYECTO",
+        "COMPONENTE",
+        "NOMBRE_COMPONENTE",
+        "FUENTE",
+        "NOMBRE_FUENTE",
+        "APROPIADO",
+        "CDP",
+        "DISPONIBLE",
+        "COMPROMETIDO",
+        "PAGOS",
+        "POR_COMPROMETER",
+        "POR_PAGAR",
+      ],
+      "CON_INTERADMINISTRATIVO"
+    );
+    await insertDataFromCSV(
+      "interrubros2",
+      "./exports/contratosInteradministrativosv2.csv",
+      [
+        "RUBRO_ID",
+        "RUBRO",
+        "CONTRATO_INTERADMINISTRATIVO",
+        "NOMBRE_RUBRO",
+        "PROYECTO",
+        "NOMBRE_DE_PROYECTO",
+        "COMPONENTE",
+        "NOMBRE_COMPONENTE",
+        "FUENTE",
+        "NOMBRE_FUENTE",
+        "APROPIACION_INICIAL",
+        "APROPIACION_DEFINITIVA",
+        "CDP",
+        "DISPONIBLE",
+        "COMPROMETIDO",
+        "PAGOS",
+        "POR_COMPROMETER",
+        "POR_PAGAR",
+        "SRS_ANOP",
+      ],
+      "CONTRATO_INTERADMINISTRATIVO"
     );
 
     console.log("Proceso completo.");
