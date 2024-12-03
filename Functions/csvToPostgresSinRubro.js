@@ -7,79 +7,79 @@ const pool = new pkg.Pool(localCliendDb);
 
 const createTables = async () => {
   try {
-    await pool.query(`
-      CREATE TABLE IF NOT EXISTS contratosInteradministrativos (
-        id SERIAL PRIMARY KEY,
-        "CONTRATO_INTERADMINISTRATIVO" VARCHAR(255) UNIQUE NOT NULL,
-        "NOMBRE_INTERADMINISTRATIVO" VARCHAR(255),
-        "CLIENTE" VARCHAR(255),
-        "ESTADO" VARCHAR(50),
-        "OBJETO" TEXT,
-        "FECHA_SUSCRIPCIÓN" VARCHAR(100),
-        "FECHA_ACTA_DE_INICIO" VARCHAR(100),
-        "FECHA_MINUTA" VARCHAR(100),
-        "FECHA_TERMINACION" VARCHAR(100),
-        "PLAZO" VARCHAR(100),
-        "VALOR_HONORARIOS" NUMERIC,
-        "VALOR" NUMERIC,
-        "PORCENTAJE_HONORARIOS" NUMERIC,
-        "PORC_HONORARIOS_PREDIOS" NUMERIC,
-        "ADMINISTRATIVO" VARCHAR(255),
-        "CENTRO_DE_COSTOS" NUMERIC
-      );
-    `);
-    await pool.query(`
-      CREATE TABLE IF NOT EXISTS contratoDerivado (
-        id SERIAL PRIMARY KEY,
-        "CODIGO" VARCHAR(255) UNIQUE NOT NULL,
-        "CLIENTE" VARCHAR(100),
-        "CON_INTERADMINISTRATIVO" VARCHAR(255) NOT NULL,
-        "TIPOLOGIA" VARCHAR(100),
-        "ANO" VARCHAR(100),
-        "ESTADO" VARCHAR(100),
-        "FECHA_CONTRATO" VARCHAR(255),
-        "PRORROGA_DIA" NUMERIC,
-        "TOTAL_DIAS" NUMERIC,
-        "SUPERVISOR" VARCHAR(100),
-        "FECHA_INI_CONTRATO" VARCHAR(100),
-        "FECHA_FINAL_CONTRATO" VARCHAR(100),
-        "FECHA_REAL_FINI" VARCHAR(100),
-        "FECHA_COMPETENCIA" VARCHAR(100),
-        "TIPO_CONTRATO" VARCHAR(255),
-        "VALTOTAL" NUMERIC,
-        "PAGO_TOTAL" NUMERIC,
-        "CENTRO_DE_COSTOS" NUMERIC,
-        "NOMBRE_CENTRO_DE_COSTOS" VARCHAR(255),
-        "SUBGERENCIA" VARCHAR(255),
-        FOREIGN KEY ("CON_INTERADMINISTRATIVO")
-          REFERENCES contratosInteradministrativos("CONTRATO_INTERADMINISTRATIVO")
-          ON DELETE CASCADE
-      );
-    `);
-    await pool.query(`
-      CREATE TABLE IF NOT EXISTS interRubros (
-        id SERIAL PRIMARY KEY,
-        "RUBRO" VARCHAR(255) UNIQUE NOT NULL,
-        "CON_INTERADMINISTRATIVO" VARCHAR(255) NOT NULL,
-        "NOMBRE_RUBRO" VARCHAR(255),
-        "PROYECTO" VARCHAR(255),
-        "NOMBRE_DE_PROYECTO" VARCHAR(255),
-        "COMPONENTE" VARCHAR(255),
-        "NOMBRE_COMPONENTE" VARCHAR(255),
-        "FUENTE" VARCHAR(255),
-        "NOMBRE_FUENTE" VARCHAR(255),
-        "APROPIADO" NUMERIC,
-        "CDP" NUMERIC,
-        "DISPONIBLE" NUMERIC,
-        "COMPROMETIDO" NUMERIC,
-        "PAGOS" NUMERIC,
-        "POR_COMPROMETER" NUMERIC,
-        "POR_PAGAR" NUMERIC,
-        FOREIGN KEY ("CON_INTERADMINISTRATIVO")
-          REFERENCES contratosInteradministrativos("CONTRATO_INTERADMINISTRATIVO")
-          ON DELETE CASCADE
-      );
-    `);
+    // await pool.query(`
+    //   CREATE TABLE IF NOT EXISTS contratosInteradministrativos (
+    //     id SERIAL PRIMARY KEY,
+    //     "CONTRATO_INTERADMINISTRATIVO" VARCHAR(255) UNIQUE NOT NULL,
+    //     "NOMBRE_INTERADMINISTRATIVO" VARCHAR(255),
+    //     "CLIENTE" VARCHAR(255),
+    //     "ESTADO" VARCHAR(50),
+    //     "OBJETO" TEXT,
+    //     "FECHA_SUSCRIPCIÓN" VARCHAR(100),
+    //     "FECHA_ACTA_DE_INICIO" VARCHAR(100),
+    //     "FECHA_MINUTA" VARCHAR(100),
+    //     "FECHA_TERMINACION" VARCHAR(100),
+    //     "PLAZO" VARCHAR(100),
+    //     "VALOR_HONORARIOS" NUMERIC,
+    //     "VALOR" NUMERIC,
+    //     "PORCENTAJE_HONORARIOS" NUMERIC,
+    //     "PORC_HONORARIOS_PREDIOS" NUMERIC,
+    //     "ADMINISTRATIVO" VARCHAR(255),
+    //     "CENTRO_DE_COSTOS" NUMERIC
+    //   );
+    // `);
+    // await pool.query(`
+    //   CREATE TABLE IF NOT EXISTS contratoDerivado (
+    //     id SERIAL PRIMARY KEY,
+    //     "CODIGO" VARCHAR(255) UNIQUE NOT NULL,
+    //     "CLIENTE" VARCHAR(100),
+    //     "CON_INTERADMINISTRATIVO" VARCHAR(255) NOT NULL,
+    //     "TIPOLOGIA" VARCHAR(100),
+    //     "ANO" VARCHAR(100),
+    //     "ESTADO" VARCHAR(100),
+    //     "FECHA_CONTRATO" VARCHAR(255),
+    //     "PRORROGA_DIA" NUMERIC,
+    //     "TOTAL_DIAS" NUMERIC,
+    //     "SUPERVISOR" VARCHAR(100),
+    //     "FECHA_INI_CONTRATO" VARCHAR(100),
+    //     "FECHA_FINAL_CONTRATO" VARCHAR(100),
+    //     "FECHA_REAL_FINI" VARCHAR(100),
+    //     "FECHA_COMPETENCIA" VARCHAR(100),
+    //     "TIPO_CONTRATO" VARCHAR(255),
+    //     "VALTOTAL" NUMERIC,
+    //     "PAGO_TOTAL" NUMERIC,
+    //     "CENTRO_DE_COSTOS" NUMERIC,
+    //     "NOMBRE_CENTRO_DE_COSTOS" VARCHAR(255),
+    //     "SUBGERENCIA" VARCHAR(255),
+    //     FOREIGN KEY ("CON_INTERADMINISTRATIVO")
+    //       REFERENCES contratosInteradministrativos("CONTRATO_INTERADMINISTRATIVO")
+    //       ON DELETE CASCADE
+    //   );
+    // `);
+    // await pool.query(`
+    //   CREATE TABLE IF NOT EXISTS interRubros (
+    //     id SERIAL PRIMARY KEY,
+    //     "RUBRO" VARCHAR(255) UNIQUE NOT NULL,
+    //     "CON_INTERADMINISTRATIVO" VARCHAR(255) NOT NULL,
+    //     "NOMBRE_RUBRO" VARCHAR(255),
+    //     "PROYECTO" VARCHAR(255),
+    //     "NOMBRE_DE_PROYECTO" VARCHAR(255),
+    //     "COMPONENTE" VARCHAR(255),
+    //     "NOMBRE_COMPONENTE" VARCHAR(255),
+    //     "FUENTE" VARCHAR(255),
+    //     "NOMBRE_FUENTE" VARCHAR(255),
+    //     "APROPIADO" NUMERIC,
+    //     "CDP" NUMERIC,
+    //     "DISPONIBLE" NUMERIC,
+    //     "COMPROMETIDO" NUMERIC,
+    //     "PAGOS" NUMERIC,
+    //     "POR_COMPROMETER" NUMERIC,
+    //     "POR_PAGAR" NUMERIC,
+    //     FOREIGN KEY ("CON_INTERADMINISTRATIVO")
+    //       REFERENCES contratosInteradministrativos("CONTRATO_INTERADMINISTRATIVO")
+    //       ON DELETE CASCADE
+    //   );
+    // `);
     await pool.query(`
       CREATE TABLE IF NOT EXISTS interRubros2 (
     id SERIAL PRIMARY KEY,
