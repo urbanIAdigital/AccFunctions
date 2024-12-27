@@ -80,35 +80,76 @@ const createTables = async () => {
     //       ON DELETE CASCADE
     //   );
     // `);
+    //     await pool.query(`
+    //       CREATE TABLE IF NOT EXISTS interRubros2 (
+    //     id SERIAL PRIMARY KEY,
+    //     "RUBRO_ID" VARCHAR(255) NOT NULL,
+    //     "SRS_ANOP" VARCHAR(255) DEFAULT '0', -- Valor por defecto
+    //     "RUBRO" VARCHAR(255) NOT NULL,
+    //     "CONTRATO_INTERADMINISTRATIVO" VARCHAR(255) NOT NULL,
+    //     "NOMBRE_RUBRO" VARCHAR(255),
+    //     "PROYECTO" VARCHAR(255),
+    //     "NOMBRE_DE_PROYECTO" VARCHAR(255),
+    //     "COMPONENTE" VARCHAR(255),
+    //     "NOMBRE_COMPONENTE" VARCHAR(255),
+    //     "FUENTE" VARCHAR(255),
+    //     "NOMBRE_FUENTE" VARCHAR(255),
+    //     "APROPIACION_INICIAL" NUMERIC,
+    //     "APROPIACION_DEFINITIVA" NUMERIC,
+    //     "CDP" NUMERIC,
+    //     "DISPONIBLE" NUMERIC,
+    //     "COMPROMETIDO" NUMERIC,
+    //     "PAGOS" NUMERIC,
+    //     "POR_COMPROMETER" NUMERIC,
+    //     "POR_PAGAR" NUMERIC,
+    //     UNIQUE ("RUBRO_ID", "SRS_ANOP"),
+    //     FOREIGN KEY ("CONTRATO_INTERADMINISTRATIVO")
+    //       REFERENCES contratosInteradministrativos("CONTRATO_INTERADMINISTRATIVO")
+    //       ON DELETE CASCADE
+    // );`);
+
+    //     console.log("Tablas creadas exitosamente.");
+    //   } catch (err) {
+    //     console.error("Error al crear las tablas:", err);
+    //   }
+    // };
     await pool.query(`
-      CREATE TABLE IF NOT EXISTS interRubros2 (
-    id SERIAL PRIMARY KEY,
-    "RUBRO_ID" VARCHAR(255) NOT NULL,
-    "SRS_ANOP" VARCHAR(255) DEFAULT '0', -- Valor por defecto
-    "RUBRO" VARCHAR(255) NOT NULL,
-    "CONTRATO_INTERADMINISTRATIVO" VARCHAR(255) NOT NULL,
-    "NOMBRE_RUBRO" VARCHAR(255),
-    "PROYECTO" VARCHAR(255),
-    "NOMBRE_DE_PROYECTO" VARCHAR(255),
-    "COMPONENTE" VARCHAR(255),
-    "NOMBRE_COMPONENTE" VARCHAR(255),
-    "FUENTE" VARCHAR(255),
-    "NOMBRE_FUENTE" VARCHAR(255),
-    "APROPIACION_INICIAL" NUMERIC,
-    "APROPIACION_DEFINITIVA" NUMERIC,
-    "CDP" NUMERIC,
-    "DISPONIBLE" NUMERIC,
-    "COMPROMETIDO" NUMERIC,
-    "PAGOS" NUMERIC,
-    "POR_COMPROMETER" NUMERIC,
-    "POR_PAGAR" NUMERIC,
-    UNIQUE ("RUBRO_ID", "SRS_ANOP"),
-    FOREIGN KEY ("CONTRATO_INTERADMINISTRATIVO")
-      REFERENCES contratosInteradministrativos("CONTRATO_INTERADMINISTRATIVO")
-      ON DELETE CASCADE
-);
-
-
+      CREATE TABLE IF NOT EXISTS pmo_ci (
+        id SERIAL PRIMARY KEY,
+        "CI" VARCHAR(255),
+        "CONTRATO_INTERADMINISTRATIVO" VARCHAR(255) UNIQUE,
+        "CATEGORIA" VARCHAR(255),
+        "CLIENTE" VARCHAR(255),
+        "ESTADO" VARCHAR(255),
+        "FECHA_DE_SUSCRIPCION" VARCHAR(255),
+        "ACTA_DE_INICIO" VARCHAR(255),
+        "PLAZO_INICIAL" VARCHAR(255),
+        "PRORROGAS_ACUMULADAS" VARCHAR(255),
+        "PLAZO_TOTAL" VARCHAR(255),
+        "FECHA_DE_FINALIZACION" VARCHAR(255),
+        "AVANCE_FISICO_PROGRAMADO" VARCHAR(255),
+        "AVANCE_FISICO_REAL" VARCHAR(255),
+        "INFORMES_PRESENTADOS" VARCHAR(255),
+        "INFORMES_APROBADOS" VARCHAR(255),
+        "PRESUPUESTO_INICIAL" VARCHAR(255),
+        "ADICIONES_ACUMULADAS" VARCHAR(255),
+        "PRESUPUESTO_FINAL" VARCHAR(255),
+        "HONORARIOS_CI" VARCHAR(255),
+        "HONORARIOS_PREDIOS" VARCHAR(255),
+        "COORDINADOR" VARCHAR(255),
+        "PMP" VARCHAR(255),
+        "ADMINISTRATIVO" VARCHAR(255),
+        "CC" VARCHAR(255),
+        "DIAS_RESTANTES" VARCHAR(255),
+        "HOY" VARCHAR(255),
+        "avance_tiempo" VARCHAR(255),
+        "comprometido_apropiado" VARCHAR(255),
+        "pagado_comprometido" VARCHAR(255),
+        "PLATAFORMA" VARCHAR(255),
+        FOREIGN KEY ("CONTRATO_INTERADMINISTRATIVO")
+           REFERENCES contratosInteradministrativos("CONTRATO_INTERADMINISTRATIVO")
+           ON DELETE CASCADE
+        );
     `);
 
     console.log("Tablas creadas exitosamente.");
@@ -129,6 +170,8 @@ const insertDataFromCSV = async (
 
     // Leer y validar datos del CSV
     for await (const row of stream) {
+      console.log(row);
+
       const values = columns.map((col) => row[col] || null);
       if (foreignKeyCheck) {
         const exists = await pool.query(
@@ -142,6 +185,7 @@ const insertDataFromCSV = async (
           continue;
         }
       }
+
       rows.push(values);
     }
 
@@ -178,6 +222,8 @@ const insertDataFromCSV = async (
       `;
 
       const flatValues = batch.flat();
+      console.log(flatValues);
+
       try {
         await pool.query(query, flatValues);
         console.log(`Lote ${i + 1}/${totalBatches} insertado exitosamente.`);
@@ -199,103 +245,140 @@ const insertDataFromCSV = async (
 const main = async () => {
   try {
     await createTables();
+    // await insertDataFromCSV(
+    //   "contratosInteradministrativos",
+    //   "./exports/contratosInteradministrativosSinRubro.csv",
+    //   [
+    //     "CONTRATO_INTERADMINISTRATIVO",
+    //     "NOMBRE_INTERADMINISTRATIVO",
+    //     "CLIENTE",
+    //     "ESTADO",
+    //     "OBJETO",
+    //     "FECHA_SUSCRIPCIÓN",
+    //     "FECHA_ACTA_DE_INICIO",
+    //     "FECHA_MINUTA",
+    //     "FECHA_TERMINACION",
+    //     "PLAZO",
+    //     "VALOR_HONORARIOS",
+    //     "VALOR",
+    //     "PORCENTAJE_HONORARIOS",
+    //     "PORC_HONORARIOS_PREDIOS",
+    //     "ADMINISTRATIVO",
+    //     "CENTRO_DE_COSTOS",
+    //   ]
+    // );
+
+    // await insertDataFromCSV(
+    //   "contratoderivado",
+    //   "./exports/contratosDerivadosSinRubro.csv",
+    //   [
+    //     "CODIGO",
+    //     "CLIENTE",
+    //     "CON_INTERADMINISTRATIVO",
+    //     "TIPOLOGIA",
+    //     "ANO",
+    //     "ESTADO",
+    //     "FECHA_CONTRATO",
+    //     "PRORROGA_DIA",
+    //     "TOTAL_DIAS",
+    //     "SUPERVISOR",
+    //     "FECHA_INI_CONTRATO",
+    //     "FECHA_FINAL_CONTRATO",
+    //     "FECHA_REAL_FINI",
+    //     "FECHA_COMPETENCIA",
+    //     "TIPO_CONTRATO",
+    //     "VALTOTAL",
+    //     "PAGO_TOTAL",
+    //     "CENTRO_DE_COSTOS",
+    //     "NOMBRE_CENTRO_DE_COSTOS",
+    //     "SUBGERENCIA",
+    //   ],
+    //   "CON_INTERADMINISTRATIVO" // Verificar la clave foránea
+    // );
+
+    // await insertDataFromCSV(
+    //   "interrubros",
+    //   "./exports/contratosInteradministrativosRubro.csv",
+    //   [
+    //     "CON_INTERADMINISTRATIVO",
+    //     "NOMBRE_RUBRO",
+    //     "RUBRO",
+    //     "PROYECTO",
+    //     "NOMBRE_DE_PROYECTO",
+    //     "COMPONENTE",
+    //     "NOMBRE_COMPONENTE",
+    //     "FUENTE",
+    //     "NOMBRE_FUENTE",
+    //     "APROPIADO",
+    //     "CDP",
+    //     "DISPONIBLE",
+    //     "COMPROMETIDO",
+    //     "PAGOS",
+    //     "POR_COMPROMETER",
+    //     "POR_PAGAR",
+    //   ],
+    //   "CON_INTERADMINISTRATIVO"
+    // );
+    // await insertDataFromCSV(
+    //   "interrubros2",
+    //   "./exports/contratosInteradministrativosv2.csv",
+    //   [
+    //     "RUBRO_ID",
+    //     "RUBRO",
+    //     "CONTRATO_INTERADMINISTRATIVO",
+    //     "NOMBRE_RUBRO",
+    //     "PROYECTO",
+    //     "NOMBRE_DE_PROYECTO",
+    //     "COMPONENTE",
+    //     "NOMBRE_COMPONENTE",
+    //     "FUENTE",
+    //     "NOMBRE_FUENTE",
+    //     "APROPIACION_INICIAL",
+    //     "APROPIACION_DEFINITIVA",
+    //     "CDP",
+    //     "DISPONIBLE",
+    //     "COMPROMETIDO",
+    //     "PAGOS",
+    //     "POR_COMPROMETER",
+    //     "POR_PAGAR",
+    //     "SRS_ANOP",
+    //   ],
+    //   "CONTRATO_INTERADMINISTRATIVO"
+    // );
     await insertDataFromCSV(
-      "contratosInteradministrativos",
-      "./exports/contratosInteradministrativosSinRubro.csv",
+      "pmo_ci",
+      "./exports/pmo_ci.csv",
       [
+        "CI",
         "CONTRATO_INTERADMINISTRATIVO",
-        "NOMBRE_INTERADMINISTRATIVO",
+        "CATEGORIA",
         "CLIENTE",
         "ESTADO",
-        "OBJETO",
-        "FECHA_SUSCRIPCIÓN",
-        "FECHA_ACTA_DE_INICIO",
-        "FECHA_MINUTA",
-        "FECHA_TERMINACION",
-        "PLAZO",
-        "VALOR_HONORARIOS",
-        "VALOR",
-        "PORCENTAJE_HONORARIOS",
-        "PORC_HONORARIOS_PREDIOS",
+        "FECHA_DE_SUSCRIPCION",
+        "ACTA_DE_INICIO",
+        "PLAZO_INICIAL",
+        "PRORROGAS_ACUMULADAS",
+        "PLAZO_TOTAL",
+        "FECHA_DE_FINALIZACION",
+        "AVANCE_FISICO_PROGRAMADO",
+        "AVANCE_FISICO_REAL",
+        "INFORMES_PRESENTADOS",
+        "INFORMES_APROBADOS",
+        "PRESUPUESTO_INICIAL",
+        "ADICIONES_ACUMULADAS",
+        "PRESUPUESTO_FINAL",
+        "HONORARIOS_CI",
+        "HONORARIOS_PREDIOS",
+        "COORDINADOR",
+        "PMP",
         "ADMINISTRATIVO",
-        "CENTRO_DE_COSTOS",
-      ]
-    );
-
-    await insertDataFromCSV(
-      "contratoderivado",
-      "./exports/contratosDerivadosSinRubro.csv",
-      [
-        "CODIGO",
-        "CLIENTE",
-        "CON_INTERADMINISTRATIVO",
-        "TIPOLOGIA",
-        "ANO",
-        "ESTADO",
-        "FECHA_CONTRATO",
-        "PRORROGA_DIA",
-        "TOTAL_DIAS",
-        "SUPERVISOR",
-        "FECHA_INI_CONTRATO",
-        "FECHA_FINAL_CONTRATO",
-        "FECHA_REAL_FINI",
-        "FECHA_COMPETENCIA",
-        "TIPO_CONTRATO",
-        "VALTOTAL",
-        "PAGO_TOTAL",
-        "CENTRO_DE_COSTOS",
-        "NOMBRE_CENTRO_DE_COSTOS",
-        "SUBGERENCIA",
-      ],
-      "CON_INTERADMINISTRATIVO" // Verificar la clave foránea
-    );
-
-    await insertDataFromCSV(
-      "interrubros",
-      "./exports/contratosInteradministrativosRubro.csv",
-      [
-        "CON_INTERADMINISTRATIVO",
-        "NOMBRE_RUBRO",
-        "RUBRO",
-        "PROYECTO",
-        "NOMBRE_DE_PROYECTO",
-        "COMPONENTE",
-        "NOMBRE_COMPONENTE",
-        "FUENTE",
-        "NOMBRE_FUENTE",
-        "APROPIADO",
-        "CDP",
-        "DISPONIBLE",
-        "COMPROMETIDO",
-        "PAGOS",
-        "POR_COMPROMETER",
-        "POR_PAGAR",
-      ],
-      "CON_INTERADMINISTRATIVO"
-    );
-    await insertDataFromCSV(
-      "interrubros2",
-      "./exports/contratosInteradministrativosv2.csv",
-      [
-        "RUBRO_ID",
-        "RUBRO",
-        "CONTRATO_INTERADMINISTRATIVO",
-        "NOMBRE_RUBRO",
-        "PROYECTO",
-        "NOMBRE_DE_PROYECTO",
-        "COMPONENTE",
-        "NOMBRE_COMPONENTE",
-        "FUENTE",
-        "NOMBRE_FUENTE",
-        "APROPIACION_INICIAL",
-        "APROPIACION_DEFINITIVA",
-        "CDP",
-        "DISPONIBLE",
-        "COMPROMETIDO",
-        "PAGOS",
-        "POR_COMPROMETER",
-        "POR_PAGAR",
-        "SRS_ANOP",
+        "CC",
+        "DIAS_RESTANTES",
+        "HOY",
+        "avance_tiempo",
+        "comprometido_apropiado",
+        "pagado_comprometido",
+        "PLATAFORMA",
       ],
       "CONTRATO_INTERADMINISTRATIVO"
     );

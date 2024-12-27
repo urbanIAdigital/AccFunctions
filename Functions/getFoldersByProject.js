@@ -2,6 +2,7 @@ import axios from "axios";
 import { getToken } from "./getToken.js";
 import { baseUrl, clientId, clientSecret } from "../constants.js";
 import { getHubId } from "./getHubId.js";
+import { saveToJsonFile } from "./saveFile.js";
 
 const accessToken = async () => {
   return await getToken(clientId, clientSecret);
@@ -20,6 +21,7 @@ export const getFolderByProject = async (projectId) => {
   });
   return data.data;
 };
-getFolderByProject("b.bec75a5b-0859-434c-8782-9b6afe650235").then((res) =>
-  console.log(res)
-);
+getFolderByProject("b.84243b4e-3047-444b-8ddb-b57aaf402211").then((res) => {
+  saveToJsonFile("movilidad-folders", res);
+  console.log(res);
+});

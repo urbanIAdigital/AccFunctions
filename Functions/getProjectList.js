@@ -2,6 +2,7 @@ import axios from "axios";
 import { getToken } from "./getToken.js";
 import { baseUrl, clientId, clientSecret } from "../constants.js";
 import { getHubId } from "./getHubId.js";
+import { saveToJsonFile } from "./saveFile.js";
 
 const accessToken = async () => {
   return await getToken(clientId, clientSecret);
@@ -21,6 +22,7 @@ const getProjectList = async () => {
   return data.data;
 };
 getProjectList().then((res) => {
+  saveToJsonFile("projects", res);
   console.log(res.map((r) => r));
 });
 
